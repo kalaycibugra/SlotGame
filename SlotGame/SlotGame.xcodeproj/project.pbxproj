@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5031B4C322360583001F6667 /* page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5031B4C222360583001F6667 /* page2ViewController.swift */; };
+		5031B4C522360E17001F6667 /* HVD_Comic_Serif_Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5031B4C422360E16001F6667 /* HVD_Comic_Serif_Pro.otf */; };
 		50AF2D002235DD350036DE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF2CFF2235DD350036DE24 /* AppDelegate.swift */; };
 		50AF2D022235DD350036DE24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF2D012235DD350036DE24 /* ViewController.swift */; };
 		50AF2D052235DD350036DE24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF2D032235DD350036DE24 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5031B4C222360583001F6667 /* page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = page2ViewController.swift; sourceTree = "<group>"; };
+		5031B4C422360E16001F6667 /* HVD_Comic_Serif_Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HVD_Comic_Serif_Pro.otf; sourceTree = "<group>"; };
 		50AF2CFC2235DD350036DE24 /* SlotGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AF2CFF2235DD350036DE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50AF2D012235DD350036DE24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				5031B4C222360583001F6667 /* page2ViewController.swift */,
 				50AF2D062235DD350036DE24 /* Assets.xcassets */,
 				50AF2D082235DD350036DE24 /* LaunchScreen.storyboard */,
+				5031B4C422360E16001F6667 /* HVD_Comic_Serif_Pro.otf */,
 				50AF2D0B2235DD350036DE24 /* Info.plist */,
 			);
 			path = SlotGame;
@@ -234,6 +237,7 @@
 			files = (
 				50AF2D0A2235DD350036DE24 /* LaunchScreen.storyboard in Resources */,
 				50AF2D072235DD350036DE24 /* Assets.xcassets in Resources */,
+				5031B4C522360E17001F6667 /* HVD_Comic_Serif_Pro.otf in Resources */,
 				50AF2D052235DD350036DE24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
