@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+var fruit=["🍎","🍏","🍐","🍊","🍋","🍌","🥥","🍉","🍇","🍓","🍈","🍒","🍑","🥭","🍍","🥝"]
+var score1: Int=0
 class page2ViewController: UIViewController {
     @IBOutlet weak var slot1: UILabel!
     @IBOutlet weak var slot2: UILabel!
@@ -16,48 +17,35 @@ class page2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        score.text="0"
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func spin(_ sender: UIButton) {
-        let fruit=["🍎","🍏","🍐","🍊","🍋","🍌","🥥","🍉","🍇","🍓","🍈","🍒","🍑","🥭","🍍","🥝"]
+        
 //        let randomInt = Int.random(in: 1..<5)
         let deadtime=DispatchTime.now()+0.1
         DispatchQueue.main.asyncAfter(deadline: deadtime){
-            self.slot1.text=fruit.randomElement()!
-            self.slot2.text=fruit.randomElement()!
-            self.slot3.text=fruit.randomElement()!
+            self.setValues()
             let deadtime=DispatchTime.now()+0.1
             DispatchQueue.main.asyncAfter(deadline: deadtime){
-                self.slot1.text=fruit.randomElement()!
-                self.slot2.text=fruit.randomElement()!
-                self.slot3.text=fruit.randomElement()!
+               self.setValues()
                 let deadtime=DispatchTime.now()+0.1
                 DispatchQueue.main.asyncAfter(deadline: deadtime){
-                    self.slot1.text=fruit.randomElement()!
-                    self.slot2.text=fruit.randomElement()!
-                    self.slot3.text=fruit.randomElement()!
+                    self.setValues()
                     let deadtime=DispatchTime.now()+0.1
                     DispatchQueue.main.asyncAfter(deadline: deadtime){
-                        self.slot1.text=fruit.randomElement()!
-                        self.slot2.text=fruit.randomElement()!
-                        self.slot3.text=fruit.randomElement()!
+                        self.setValues()
                         let deadtime=DispatchTime.now()+0.1
                         DispatchQueue.main.asyncAfter(deadline: deadtime){
-                            self.slot1.text=fruit.randomElement()!
-                            self.slot2.text=fruit.randomElement()!
-                            self.slot3.text=fruit.randomElement()!
+                            self.setValues()
                             let deadtime=DispatchTime.now()+0.1
                             DispatchQueue.main.asyncAfter(deadline: deadtime){
-                                self.slot1.text=fruit.randomElement()!
-                                self.slot2.text=fruit.randomElement()!
-                                self.slot3.text=fruit.randomElement()!
+                                self.setValues()
                                 let deadtime=DispatchTime.now()+0.1
                                 DispatchQueue.main.asyncAfter(deadline: deadtime){
-                                    self.slot1.text=fruit.randomElement()!
-                                    self.slot2.text=fruit.randomElement()!
-                                    self.slot3.text=fruit.randomElement()!
+                                    self.setValues()
                                     let deadtime=DispatchTime.now()+0.2
                                 }
                             }
@@ -69,13 +57,28 @@ class page2ViewController: UIViewController {
         slot1.text=fruit.randomElement()!
         slot2.text=fruit.randomElement()!
         slot3.text=fruit.randomElement()!
+        let deadtime1=DispatchTime.now()+0.1
+        DispatchQueue.main.asyncAfter(deadline: deadtime1){
+        self.calculate()}
         
     }
-//    func setValues(){
-//        self.slot1.text=fruit.randomElement()!
-//        self.slot2.text=fruit.randomElement()!
-//        self.slot3.text=fruit.randomElement()!
-//    }
+    func setValues(){
+        self.slot1.text=fruit.randomElement()!
+        self.slot2.text=fruit.randomElement()!
+        self.slot3.text=fruit.randomElement()!
+    }
+    func calculate(){
+        if (self.slot1.text==self.slot2.text && self.slot1.text==self.slot3.text){
+            score1=score1+300
+        }
+        else if(self.slot1.text==self.slot2.text || self.slot1.text==self.slot3.text||self.slot2.text==self.slot3.text){
+            score1=score1+200
+        }
+        else{
+            score1=score1-50
+        }
+        score.text=String(score1)
+    }
 //
     
     /*
