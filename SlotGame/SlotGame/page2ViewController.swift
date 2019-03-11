@@ -18,6 +18,7 @@ class page2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         score.text="0"
+        score1=0;
         // Do any additional setup after loading the view.
         
     }
@@ -47,6 +48,10 @@ class page2ViewController: UIViewController {
                                 DispatchQueue.main.asyncAfter(deadline: deadtime){
                                     self.setValues()
                                     let deadtime=DispatchTime.now()+0.2
+                                    DispatchQueue.main.asyncAfter(deadline: deadtime){
+                                        self.calculate()
+                                        
+                                    }
                                 }
                             }
                         }
@@ -54,18 +59,17 @@ class page2ViewController: UIViewController {
                 }
             }
         }
-        slot1.text=fruit.randomElement()!
-        slot2.text=fruit.randomElement()!
-        slot3.text=fruit.randomElement()!
-        let deadtime1=DispatchTime.now()+0.1
-        DispatchQueue.main.asyncAfter(deadline: deadtime1){
-        self.calculate()}
+        
+        
         
     }
     func setValues(){
         self.slot1.text=fruit.randomElement()!
         self.slot2.text=fruit.randomElement()!
         self.slot3.text=fruit.randomElement()!
+        print(self.slot1)
+        print(self.slot2)
+        print(self.slot3)
     }
     func calculate(){
         if (self.slot1.text==self.slot2.text && self.slot1.text==self.slot3.text){
@@ -78,6 +82,14 @@ class page2ViewController: UIViewController {
             score1=score1-50
         }
         score.text=String(score1)
+        print("**********************")
+        print(self.slot1)
+        print(self.slot2)
+        print(self.slot3)
+        print(self.score)
+        print(score1)
+        print("**********************")
+        
     }
 //
     
