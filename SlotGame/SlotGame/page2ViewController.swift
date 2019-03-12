@@ -8,7 +8,7 @@
 
 import UIKit
 var fruit=["🍎","🍏","🍐","🍊","🍋","🍌","🥥","🍉","🍇","🍓","🍈","🍒","🍑","🥭","🍍","🥝"]
-var score1: Int=0
+var score1: Int=100
 class page2ViewController: UIViewController {
     @IBOutlet weak var slot1: UILabel!
     @IBOutlet weak var slot2: UILabel!
@@ -17,8 +17,8 @@ class page2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        score.text="0"
-        score1=0;
+        score.text=String(score1)
+//        score1=1000;
         // Do any additional setup after loading the view.
         
     }
@@ -50,7 +50,19 @@ class page2ViewController: UIViewController {
                                     let deadtime=DispatchTime.now()+0.2
                                     DispatchQueue.main.asyncAfter(deadline: deadtime){
                                         self.calculate()
-                                        
+                                        if(score1==0){
+                                            let alert = UIAlertController(title: "UUPS", message: "Out of coins.", preferredStyle: .alert)
+                                            
+                                            alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { action in
+                                                    score1=1000
+                                                    self.slot1.text="??"
+                                                    self.slot2.text="??"
+                                                    self.slot3.text="??"
+                                                    self.score.text=String(score1)
+                                                
+                                            }))
+                                            self.present(alert, animated: true)
+                                        }
                                     }
                                 }
                             }
@@ -59,7 +71,6 @@ class page2ViewController: UIViewController {
                 }
             }
         }
-        
         
         
     }
@@ -73,10 +84,34 @@ class page2ViewController: UIViewController {
     }
     func calculate(){
         if (self.slot1.text==self.slot2.text && self.slot1.text==self.slot3.text){
-            score1=score1+300
+            if(self.slot1.text=="🍍"){
+                score1=score1+750
+            }
+            else if(self.slot1.text=="🥥" ){
+                score1=score1+600
+            }
+            else if(self.slot1.text=="🍓"){
+                score1=score1+900
+            }
+            else{
+                score1=score1+300
+                
+            }
+            
         }
         else if(self.slot1.text==self.slot2.text || self.slot1.text==self.slot3.text||self.slot2.text==self.slot3.text){
-            score1=score1+200
+            if(self.slot1.text=="🍍"||self.slot2.text=="🍍"||self.slot3.text=="🍍"){
+                score1=score1+500
+            }
+            else if(self.slot1.text=="🥥" || self.slot2.text=="🥥"||self.slot3.text=="🥥"){
+                score1=score1+400
+            }
+            else if(self.slot1.text=="🍓"||self.slot2.text=="🍓"||self.slot3.text=="🍓"){
+                score1=score1+300
+            }
+            else{
+                score1=score1+200
+            }
         }
         else{
             score1=score1-50
