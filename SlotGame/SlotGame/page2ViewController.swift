@@ -8,19 +8,24 @@
 
 import UIKit
 var fruit=["🍎","🍏","🍐","🍊","🍋","🍌","🥥","🍉","🍇","🍓","🍈","🍒","🍑","🥭","🍍","🥝"]
-var score1: Int=100
+
 class page2ViewController: UIViewController {
     @IBOutlet weak var slot1: UILabel!
     @IBOutlet weak var slot2: UILabel!
     @IBOutlet weak var slot3: UILabel!
     @IBOutlet weak var score: UILabel!
-    
+//    var score2=0
+    var score1: Int=100
     override func viewDidLoad() {
         super.viewDidLoad()
         score.text=String(score1)
 //        score1=1000;
         // Do any additional setup after loading the view.
         
+    }
+    @IBAction func rolldice(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "InputVCToDisplayVC", sender: self)
+
     }
     
     @IBAction func spin(_ sender: UIButton) {
@@ -50,17 +55,18 @@ class page2ViewController: UIViewController {
                                     let deadtime=DispatchTime.now()+0.2
                                     DispatchQueue.main.asyncAfter(deadline: deadtime){
                                         self.calculate()
-                                        if(score1==0){
+                                        if(self.score1==0){
                                             let alert = UIAlertController(title: "UUPS", message: "Out of coins.", preferredStyle: .alert)
                                             
                                             alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { action in
-                                                    score1=1000
+                                                self.score1=100
                                                     self.slot1.text="??"
                                                     self.slot2.text="??"
                                                     self.slot3.text="??"
-                                                    self.score.text=String(score1)
+                                                self.score.text=String(self.score1)
                                                 
                                             }))
+                                            
                                             self.present(alert, animated: true)
                                         }
                                     }
@@ -128,14 +134,19 @@ class page2ViewController: UIViewController {
     }
 //
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destination.
+//         Pass the selected object to the new view controller.
+        if(segue.identifier == "InputVCToDisplayVC"){
+            let displayVC = segue.destination as! ViewController3
+            print( score1)
+            displayVC.addValue = score1
+        }
     }
-    */
+ 
 
 }
