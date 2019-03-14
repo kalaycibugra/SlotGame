@@ -29,7 +29,7 @@ class ViewController3: UIViewController {
     var dices=["Dice1","Dice2","Dice3","Dice4","Dice5","Dice6"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        addValue=addValue+1
+//        addValue=addValue+1
         print(addValue)
 //        dice1.image=UIImage(named:"Dice2")
 //        let vc = page2ViewController()
