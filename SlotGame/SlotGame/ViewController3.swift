@@ -26,11 +26,14 @@ class ViewController3: UIViewController {
     var curIndex2=0;
     var addValue=0;
     var extra=0;
+    var initialValue=0;
     var dices=["Dice1","Dice2","Dice3","Dice4","Dice5","Dice6"]
     override func viewDidLoad() {
         super.viewDidLoad()
 //        addValue=addValue+1
-        print(addValue)
+        initialValue=addValue
+        print(initialValue)
+//        print(addValue)
 //        dice1.image=UIImage(named:"Dice2")
 //        let vc = page2ViewController()
 //        addValue=vc.score1
@@ -93,6 +96,19 @@ class ViewController3: UIViewController {
                                         self.setValues()
                                         self.calculate(self.curIndex1,self.curIndex2)
 //                                        let vc = page2ViewController()
+                                        var message="Earned "
+                                        let val=self.addValue-self.initialValue
+                                        
+                                        let new = String(val)
+                                        let c=" coins!!"
+                                        message=message+new+c
+                                        let alert = UIAlertController(title: "WON!!", message: message, preferredStyle: .alert)
+                                        
+                                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                                            
+                                        }))
+                                        
+                                        self.present(alert, animated: true)
 //                                        print (vc.score1)
                                     }
                                 }

@@ -31,15 +31,13 @@ class page2ViewController: UIViewController {
     @IBAction func spin(_ sender: UIButton) {
         
 //        let randomInt = Int.random(in: 1..<5)
-        let deadtime=DispatchTime.now()+0.1
-        DispatchQueue.main.asyncAfter(deadline: deadtime){
-            self.setValues()
+        if (self.score1 != 0){
             let deadtime=DispatchTime.now()+0.1
             DispatchQueue.main.asyncAfter(deadline: deadtime){
-               self.setValues()
+                self.setValues()
                 let deadtime=DispatchTime.now()+0.1
                 DispatchQueue.main.asyncAfter(deadline: deadtime){
-                    self.setValues()
+                   self.setValues()
                     let deadtime=DispatchTime.now()+0.1
                     DispatchQueue.main.asyncAfter(deadline: deadtime){
                         self.setValues()
@@ -52,22 +50,29 @@ class page2ViewController: UIViewController {
                                 let deadtime=DispatchTime.now()+0.1
                                 DispatchQueue.main.asyncAfter(deadline: deadtime){
                                     self.setValues()
-                                    let deadtime=DispatchTime.now()+0.2
+                                    let deadtime=DispatchTime.now()+0.1
                                     DispatchQueue.main.asyncAfter(deadline: deadtime){
-                                        self.calculate()
-                                        if(self.score1==0){
-                                            let alert = UIAlertController(title: "UUPS", message: "Out of coins.", preferredStyle: .alert)
-                                            
-                                            alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { action in
-                                                self.score1=100
-                                                    self.slot1.text="??"
-                                                    self.slot2.text="??"
-                                                    self.slot3.text="??"
-                                                self.score.text=String(self.score1)
+                                        self.setValues()
+                                        let deadtime=DispatchTime.now()+0.2
+                                        DispatchQueue.main.asyncAfter(deadline: deadtime){
+                                            self.calculate()
+                                            if(self.score1==0){
+                                                let alert = UIAlertController(title: "UUPS", message: "Out of coins.", preferredStyle: .alert)
                                                 
-                                            }))
-                                            
-                                            self.present(alert, animated: true)
+                                                alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { action in
+                                                    self.score1=100
+                                                        self.slot1.text="??"
+                                                        self.slot2.text="??"
+                                                        self.slot3.text="??"
+                                                    self.score.text=String(self.score1)
+                                                    
+                                                }))
+                                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                                                    
+                                                    
+                                                }))
+                                                self.present(alert, animated: true)
+                                            }
                                         }
                                     }
                                 }
@@ -76,8 +81,15 @@ class page2ViewController: UIViewController {
                     }
                 }
             }
+        }else{
+            let alert = UIAlertController(title: "Out of coins", message: "Roll dice.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                
+            }))
+            
+            self.present(alert, animated: true)
         }
-        
         
     }
     func setValues(){
